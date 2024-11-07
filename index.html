@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple HTML website template">
-    <title>Simple Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Aviator</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Simple Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>This is the home section of the website.</p>
-        </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>This section contains information about the website.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Contact us at <a href="mailto:example@example.com">example@example.com</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Simple Website. All rights reserved.</p>
-    </footer>
+    <h1>Welcome to the Aviator Page</h1>
+    <div style="margin-bottom: 10px;">
+        <label for="actual-sum">Actual Sum:</label>
+        <input type="text" id="actual-sum" name="actual-sum" style="margin-left: 10px;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="desired-sum">Desired Sum:</label>
+        <input type="text" id="desired-sum" name="desired-sum" style="margin-left: 10px;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" style="margin-left: 10px;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <button onclick="calculate()">Calculate</button>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="result">Result:</label>
+        <input type="text" id="result" name="result" style="margin-left: 10px;">
+    </div>
 </body>
+<script>
+    calculate = () => {
+        let actualSum = parseFloat(document.getElementById("actual-sum").value);
+        let desiredSum = parseFloat(document.getElementById("desired-sum").value);
+        let amount = parseFloat(document.getElementById("amount").value);   
+
+        let result = desiredSum - actualSum;
+
+        let neededpercent = (desiredSum - actualSum)/amount;
+
+        document.getElementById("result").value = neededpercent;
+    }
+</script>
 </html>
