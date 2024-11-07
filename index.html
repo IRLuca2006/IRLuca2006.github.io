@@ -6,31 +6,82 @@
     <title>Aviator</title>
 </head>
 <body>
-    <h1>Welcome to the Aviator Page</h1>
-    <div style="margin-bottom: 10px;">
-        <label for="actual-sum">Actual Sum:</label>
-        <input type="text" id="actual-sum" name="actual-sum" style="margin-left: 10px;">
-    </div>
-    <div style="margin-bottom: 10px;">
-        <label for="desired-sum">Desired Sum:</label>
-        <input type="text" id="desired-sum" name="desired-sum" style="margin-left: 10px;">
-    </div>
-    <div style="margin-bottom: 10px;">
-        <label for="amount">Amount:</label>
-        <input type="text" id="amount" name="amount" style="margin-left: 10px;">
-    </div>
-    <div style="margin-bottom: 10px;">
-        <label for="steps">Number of Steps:</label>
-        <input type="text" id="steps" name="steps" style="margin-left: 10px;">
-    </div>
-    <div style="margin-bottom: 10px;">
-        <button onclick="calculate()">Calculate</button>
-    </div>
-    <div style="margin-bottom: 10px;">
-        <label for="result">Result:</label>
-        <input type="text" id="result" name="result" style="margin-left: 10px;" readonly>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <div class="container">
+        <h1>Welcome to the Aviator Page</h1>
+        <div>
+            <label for="actual-sum">Actual Sum:</label>
+            <input type="text" id="actual-sum" name="actual-sum">
+        </div>
+        <div>
+            <label for="desired-sum">Desired Sum:</label>
+            <input type="text" id="desired-sum" name="desired-sum">
+        </div>
+        <div>
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount">
+        </div>
+        <div>
+            <label for="steps">Number of Steps:</label>
+            <input type="text" id="steps" name="steps">
+        </div>
+        <div>
+            <button onclick="calculate()">Calculate</button>
+            <button onclick="clearFields()">Clear</button>
+        </div>
+        <div>
+            <label for="result">Result:</label>
+            <input type="text" id="result" name="result" readonly>
+        </div>
     </div>
 </body>
+<footer style="text-align: center; margin-top: 20px;">
+    <p>&copy; 2024 Aviator. All rights reserved.</p>
+</footer>
 <script>
     calculate = () => {
         let actualSum = parseFloat(document.getElementById("actual-sum").value);
@@ -42,6 +93,14 @@
         let neededPercent = (desiredSum - actualSum) / (amount * steps);
 
         document.getElementById("result").value = neededPercent + 1;
+    }
+
+    clearFields = () => {
+        document.getElementById("actual-sum").value = '';
+        document.getElementById("desired-sum").value = '';
+        document.getElementById("amount").value = '';
+        document.getElementById("steps").value = '';
+        document.getElementById("result").value = '';
     }
 </script>
 </html>
