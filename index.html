@@ -20,6 +20,10 @@
         <input type="text" id="amount" name="amount" style="margin-left: 10px;">
     </div>
     <div style="margin-bottom: 10px;">
+        <label for="steps">Number of Steps:</label>
+        <input type="text" id="steps" name="steps" style="margin-left: 10px;">
+    </div>
+    <div style="margin-bottom: 10px;">
         <button onclick="calculate()">Calculate</button>
     </div>
     <div style="margin-bottom: 10px;">
@@ -31,13 +35,13 @@
     calculate = () => {
         let actualSum = parseFloat(document.getElementById("actual-sum").value);
         let desiredSum = parseFloat(document.getElementById("desired-sum").value);
-        let amount = parseFloat(document.getElementById("amount").value);   
+        let amount = parseFloat(document.getElementById("amount").value);
+        let steps = parseInt(document.getElementById("steps").value);
 
         let result = desiredSum - actualSum;
+        let neededPercent = (desiredSum - actualSum) / (amount * steps);
 
-        let neededpercent = (desiredSum - actualSum)/amount;
-
-        document.getElementById("result").value = neededpercent + 1;
+        document.getElementById("result").value = neededPercent + 1;
     }
 </script>
 </html>
